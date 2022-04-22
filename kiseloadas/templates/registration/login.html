@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="box">
+        {{form.as_p}}
+    </div>
+
+    <button type="submit">Bejelentkezés</button>
+</form>
+
+{% endblock %}
