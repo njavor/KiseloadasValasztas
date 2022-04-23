@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% block statics %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<form action="" method="POST">
+<form action="" method="POST" class="box">
+    <h2>Bejelentkezés</h2>
     {% csrf_token %}
-
-    <div class="box">
-        {{form.as_p}}
-    </div>
-
+    {{form.as_p}}
     <button type="submit">Bejelentkezés</button>
 </form>
 
