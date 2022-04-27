@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <script src="{% static 'js/scripts.js' %}"></script>
+    
+    <script src="{% static 'js/scripts.js' %}"></script>    
 
     {% block statics %}
     {% endblock %}
@@ -28,8 +29,8 @@
             <nav>
                 <h3>{{ user.last_name }} {{ user.first_name }}</h3>
                 {% if request.user.is_staff %}
-                    <a href=""><h3>Új feladat</h3></a>
-                    <a href=""><h3>Új tanuló</h3></a>                
+                    <a href="/feladatok"><h3>Feladatok</h3></a>
+                    <a href="/tanulok"><h3>Tanulók</h3></a>               
                 {% endif %}
                 <a href="{% url 'logout' %}"><h3>Kijelentkezés</h3></a>
             </nav>
@@ -37,7 +38,7 @@
     </header>
 
     <main>
-        {% block content %}
+        {% block content %}k
         {% endblock %}
     </main>
 

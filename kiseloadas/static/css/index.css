@@ -1,0 +1,10 @@
+.box .tied, .box .foglalt{
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.box .tied{
+    background-color: rgb(33, 110, 52);
+}
+.box .foglalt{
+    background-color: rgb(126, 53, 53);
+}

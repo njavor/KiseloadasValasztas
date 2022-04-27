@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block statics %}
+<link rel="stylesheet" href="{% static 'css/felsorolas.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="box">
+    <h2>Feladatok</h2>
+    <ul>
+        {% for feladat in feladatok %}
+        <li>
+            <ul class="bent">
+                <li>{{feladat.tema}}</li>
+                {% if feladat.user == None %}
+                <li class="ures">gazdátlan</li>
+                {% else %}
+                <li class="teli">{{feladat.user.last_name}} {{feladat.user.first_name}}</li>
+                {% endif %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

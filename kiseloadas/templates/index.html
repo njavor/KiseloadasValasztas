@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% block statics %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 {% block content %}
-<p>lkdadjfglkdasjflkajvédsjfnlkjvdnkjl</p>
+
+{% for eloadas in eloadasok %}
+    <form action="" method="post" class="box">
+        {% csrf_token %}
+
+        <h3>{{eloadas.tema}}</h3>
+        <p class="leiras">{{eloadas.leiras}}</p>
+        <input type="hidden" name="atema" value="{{eloadas.tema}}">
+        {% if eloadas.user.last_name == null %}
+            <button type="submit" class="apply">Jelentkezés</button>
+            {% elif eloadas.user == user %}
+            <button class="tied">Tiéd</button>
+            {% else %}
+                <button class="foglalt">Foglalt</button>
+            {% endif %}
+    </form>
+
+{% endfor %}
+
 {% endblock %}

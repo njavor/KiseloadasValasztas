@@ -6,4 +6,15 @@ main{
 }
 .box{
     margin-bottom: 2em;
+    padding-bottom: 3em 4em 5em 4em;
+}
+
+.errorlist.nonfield{
+    width: 300px;
+    margin-bottom: 1.5em;
+    padding: 10px;
+
+    background-color: #df5050;
+    font-weight: 600;
+    text-align: center;
 }
