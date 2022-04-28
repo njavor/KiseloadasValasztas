@@ -7,16 +7,25 @@
 
 {% block content %}
 
+    {% if elvegezve %}
+    <h3>Változtatások sikeresen elvégezve!</h3>
+    {% endif %}
+
+    {% if not hiba %}
     <form action="" method="post" class="box">
         {% csrf_token %}
-
+        <div class="error" name="hiba"><p></p></div>
         <h2>Új tanulók/feladatok</h2>
         <textarea name="feltoltendo"cols="50" rows="12"></textarea>
         <div class="gombok">
             <button type="submit" name="tanulok">Új felhasználók</button>
             <button type="submit" name="feladatok">Új feladatok</button>
         </div>
-        <button type="submit" name="torles">Feladatok törlése</button>
+        <button class="torles" type="submit" name="torles">Feladatok törlése</button>
     </form>
+    {% else %}
+    <h2>Nem tartalmaz minden adatot az adattömb.</h2>
+    <a href="{% url 'uj' %}"><button>Újra megpróbálom...</button></a>
+    {%endif%}
 
 {% endblock %}

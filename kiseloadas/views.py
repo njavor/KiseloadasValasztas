@@ -1,6 +1,6 @@
-from asyncio.windows_events import NULL
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
 from kiseloadas.models import Kisealoadas
@@ -24,6 +24,36 @@ def indexview(request):
 
 @login_required
 def ujview(request):
+    context = {}
     if request.method == 'POST':
-        nu = True
-    return render(request, "uj.html", {})
+        if 'tanulok' in request.POST:
+            tsvdata = str(request.POST['feltoltendo']).split("\n")
+            for sor in tsvdata:
+                fields = sor.split("\t")
+                if len(fields) < 5:
+                    context['hiba'] = True
+                else:
+                    User.objects.create(
+                        username = fields[0],
+                        password = make_password(fields[1]),
+                        last_name = fields[2],
+                        first_name = fields[3],
+                        is_staff = fields[4],
+                    )
+                    context['elvegezve'] = True
+        elif 'feladatok' in request.POST:
+            data = str(request.POST['feltoltendo']).split("\n")
+            for elem in data:
+                if len(elem) < 1:
+                    context['hiba'] = True
+                else:
+                    Kisealoadas.objects.create(
+                        tema = elem,
+                        user = None,
+                    )
+                    context['elvegezve'] = True
+        elif 'torles' in request.POST:
+            Kisealoadas.objects.all().delete()
+            context['elvegezve'] = True
+    print(context)
+    return render(request, "uj.html", context)

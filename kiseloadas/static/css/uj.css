@@ -7,3 +7,9 @@
     align-items: center;
     gap: 2em;
 }
+.torles{
+    background-color: rgb(126, 53, 53) !important;
+}
+.torles:hover{
+    background-color: rgb(190, 138, 138) !important;
+}

@@ -29,7 +29,7 @@
             <nav>
                 <h3>{{ user.last_name }} {{ user.first_name }}</h3>
                 {% if request.user.is_staff %}
-                    <a href="/uj"><h3>Új</h3></a>
+                    <a href="/uj"><h3>Új/Törlés</h3></a>
                 {% endif %}
                 <a href="{% url 'logout' %}"><h3>Kijelentkezés</h3></a>
             </nav>

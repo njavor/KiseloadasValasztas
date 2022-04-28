@@ -9,6 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('django.contrib.auth.urls'), name="index"),
-    path('', indexview),
-    path('uj', ujview),
+    path('', indexview,),
+    path('uj', ujview, name="uj"),
 ]

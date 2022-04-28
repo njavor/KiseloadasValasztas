@@ -10,7 +10,6 @@ class Kisealoadas(models.Model):
         verbose_name_plural = 'Kiselőadások'
 
     tema = models.CharField('téma', max_length=255)
-    leiras = models.CharField('leírás', max_length=255)
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 
     def setUser(betema, beuser):
