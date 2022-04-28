@@ -8,3 +8,6 @@
 ul .bent{
     margin: 2em 0;
 }
+ul .bent li{
+    line-height: 100%;
+}

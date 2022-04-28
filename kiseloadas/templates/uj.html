@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block statics %}
+<link rel="stylesheet" href="{% static 'css/uj.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <form action="" method="post" class="box">
+        {% csrf_token %}
+
+        <h2>Új tanulók/feladatok</h2>
+        <textarea name="feltoltendo"cols="50" rows="12"></textarea>
+        <div class="gombok">
+            <button type="submit" name="tanulok">Új felhasználók</button>
+            <button type="submit" name="feladatok">Új feladatok</button>
+        </div>
+        <button type="submit" name="torles">Feladatok törlése</button>
+    </form>
+
+{% endblock %}

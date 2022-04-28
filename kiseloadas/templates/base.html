@@ -23,14 +23,13 @@
 <body>
 
     <header>
-        <h1>Osztálykirándulás kiselőadás</h1>
+        <a href="/"><h1>Osztálykirándulás kiselőadás</h1></a>
         
         {% if request.user.is_authenticated %}
             <nav>
                 <h3>{{ user.last_name }} {{ user.first_name }}</h3>
                 {% if request.user.is_staff %}
-                    <a href="/feladatok"><h3>Feladatok</h3></a>
-                    <a href="/tanulok"><h3>Tanulók</h3></a>               
+                    <a href="/uj"><h3>Új</h3></a>
                 {% endif %}
                 <a href="{% url 'logout' %}"><h3>Kijelentkezés</h3></a>
             </nav>

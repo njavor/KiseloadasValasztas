@@ -17,7 +17,8 @@
         {% if eloadas.user.last_name == null %}
             <button type="submit" class="apply">Jelentkezés</button>
             {% elif eloadas.user == user %}
-            <button class="tied">Tiéd</button>
+            <input type="hidden" name="le" value="True">
+            <button class="tied">Lejelentkezés</button>
             {% else %}
                 <button class="foglalt">Foglalt</button>
             {% endif %}

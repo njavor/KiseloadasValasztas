@@ -10,23 +10,20 @@ from kiseloadas.models import Kisealoadas
 def indexview(request):
     context = {'user': request.user}
     if request.user.is_staff:
+        context['feladatok'] = Kisealoadas.objects.all()
+        context['tanarok'] = User.objects.filter(is_staff=True)
+        context['tanulok'] = User.objects.filter(is_staff=False)
         return render(request, "tanar.html", context)
     else:
         context['eloadasok'] = Kisealoadas.objects.all()
         if request.method == 'POST':
             Kisealoadas.objects.filter(user = request.user).update(user = None)
-            Kisealoadas.objects.filter(tema = request.POST['atema']).update(user = request.user)
-            print()
+            if 'le' not in request.POST:
+                Kisealoadas.objects.filter(tema = request.POST['atema']).update(user = request.user)
         return render(request, "index.html", context)
 
-
 @login_required
-def feladatview(request):
-    context = {'feladatok': Kisealoadas.objects.all()}
-    return render(request, "feladatok.html", context)
-
-@login_required
-def tanuloview(request):
-    tanulok = User.objects.filter(is_staff=False)
-    context = {'tanulok': tanulok}
-    return render(request, "tanulok.html", context)
+def ujview(request):
+    if request.method == 'POST':
+        nu = True
+    return render(request, "uj.html", {})
