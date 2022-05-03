@@ -1,3 +1,30 @@
+main{
+    flex-direction: column;
+}
+
+.delete_info{
+    margin: 0 0 2em 0;
+    padding: 1em;
+
+    background-color: var(--vlpurple);
+    color: var(--dark);
+}
+.info{
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.horizontal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+
+    flex-wrap: wrap;
+}
 .gombok{
     background-color: transparent;
     align-self: center;

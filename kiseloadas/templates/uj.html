@@ -8,8 +8,27 @@
 {% block content %}
 
     {% if elvegezve %}
-    <h3>Változtatások sikeresen elvégezve!</h3>
+    <h3 class="delete_info">Változtatások sikeresen elvégezve!</h3>
     {% endif %}
+
+    <div class="info">        
+        <h2>Új felhasznláló megadása:</h2>
+        <ul class="horizontal">
+            <li>felhasználónév</li>
+            <li>jelszó</li>
+            <li>vezetéknév</li>
+            <li>keresztnév</li>
+            <li>tanár-e</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h2>Új feladat megadása:</h2>
+        <ul class="horizontal">
+            <li>téma címe</li>
+        </ul>
+    </div>
+
 
     {% if not hiba %}
     <form action="" method="post" class="box">
