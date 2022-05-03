@@ -1,0 +1,14 @@
+.box .foglalt{
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.box .tied{
+    background-color: rgb(33, 110, 52);
+}
+.box .tied:hover{
+    background-color: rgb(109, 170, 124);
+    color: var(--dark);
+}
+.box .foglalt{
+    background-color: rgb(126, 53, 53);
+}
